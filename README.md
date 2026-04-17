@@ -152,8 +152,8 @@ SSH into the ZimaOS device and run:
 
 ```bash
 cd /tmp
-TAG=$(curl -sL https://api.github.com/repos/Pocho-Labs/zimaos-monitor-dev/releases/latest | grep '"tag_name"' | cut -d'"' -f4)
-curl -LO "https://github.com/Pocho-Labs/zimaos-monitor-dev/releases/download/${TAG}/zimaos-monitor-${TAG}-linux-amd64.tar.gz"
+TAG=$(curl -sL https://api.github.com/repos/Pocho-Labs/zimaos-monitor/releases/latest | grep '"tag_name"' | cut -d'"' -f4)
+curl -LO "https://github.com/Pocho-Labs/zimaos-monitor/releases/download/${TAG}/zimaos-monitor-${TAG}-linux-amd64.tar.gz"
 tar -xzf zimaos-monitor-*.tar.gz
 cd zimaos-monitor-*-linux-amd64
 sudo ./install.sh
