@@ -1,0 +1,43 @@
+mqtt:
+  broker: "tcp://YOUR_MQTT_BROKER_IP:1883"
+  username: ""
+  password: ""
+  client_id: "zimaos-monitor"
+
+# device: (optional) — all fields auto-detected at startup:
+#   id            → derived from /etc/hostname (sanitized), fallback to machine-id prefix
+#   name          → "ZimaOS <hostname>"
+#   serial_number → /etc/machine-id
+#   manufacturer  → "Pocho Labs"
+# Uncomment any field below to override the auto-detected value.
+#
+# device:
+#   name: "ZimaOS Monitor"
+#   id: "zimaos_monitor"     # MQTT topic prefix + HA unique_id prefix
+#   model: "ZimaBoard"       # ZimaBoard / ZimaBlade / ZimaCube
+#   manufacturer: "Pocho Labs"
+#   serial_number: ""        # leave empty to use /etc/machine-id
+
+# Interval between metric publishes (e.g. 30s, 1m)
+interval: 30s
+
+# disks: (optional) — if omitted, all physical mount points are discovered automatically.
+# Specify to control which disks appear and set custom display names:
+#
+# disks:
+#   - path: "/"
+#     name: "System"
+#   - path: "/media/SSD-Storage"
+#     name: "SSD"
+#
+# Typical paths by device:
+#   ZimaBoard:  /, /DATA, /media/SSD-Storage, /media/HDD-Storage
+#   ZimaBlade:  /, /media/Storage
+#   ZimaCube:   /, /media/slot1 … /media/slot6 (per populated bay)
+
+# updates: (optional) — check for newer stable ZimaOS releases on GitHub.
+# If enabled, publishes an "update available" entity to Home Assistant.
+#
+# updates:
+#   enabled: true        # default true; set false to skip the GitHub check
+#   check_interval: 6h   # default 6h; minimum 1h enforced

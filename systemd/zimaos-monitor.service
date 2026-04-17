@@ -1,0 +1,23 @@
+[Unit]
+Description=ZimaOS Hardware Monitor (MQTT publisher)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/zimaos-monitor
+ExecStart=/opt/zimaos-monitor/zimaos-monitor -config /opt/zimaos-monitor/config.yaml
+Restart=on-failure
+RestartSec=10s
+
+# Intel RAPL requires access to /sys/class/powercap which is root-readable by default.
+# If you want to run as a non-root user, grant the capability below and change User= above.
+# AmbientCapabilities=CAP_SYS_RAWIO
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=zimaos-monitor
+
+[Install]
+WantedBy=multi-user.target
