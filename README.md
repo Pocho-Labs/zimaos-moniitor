@@ -4,6 +4,8 @@
 
 A Go service for ZimaOS that collects system metrics and publishes them via MQTT with Home Assistant autodiscovery. Works on all ZimaSpace devices: ZimaBoard, ZimaBlade, ZimaCube, and others.
 
+![Device page in Home Assistant](screenshots/screenshot-01.png)
+
 ---
 
 ## Published Metrics
